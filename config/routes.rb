@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   # allows us to show the user their individual bookings.
   resources :bookings, only: %i[index]
+
+  get "/my_shoes", to: "shoes#my_shoes"
 end

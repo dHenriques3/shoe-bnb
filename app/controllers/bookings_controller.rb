@@ -9,10 +9,13 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @shoe = Shoe.find(params[:shoe_id])
     @booking = Booking.new(booking_params)
-    @booking.shoe_id = params[:shoe_id]
+    @booking.shoe = @shoe
+    @shoe.is_rented = true
     @booking.user = current_user
-    if @booking.save
+
+    if @booking.save && @shoe.save
       redirect_to bookings_path
     else
       render :new, status: :unprocessable_entity
