@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   end
 
   # allows us to show the user their individual bookings.
-  resources :bookings, only: %i[index]
+  resources :bookings, only: %i[index create]
 end
