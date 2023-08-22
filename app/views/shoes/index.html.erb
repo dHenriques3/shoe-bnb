@@ -11,7 +11,7 @@
   <% end %>
 </ul>
 
-<h1>My Shoe Listings </h1>
+<h1><%=current_user.first_name%> <%=current_user.last_name%>'s Shoe Listings </h1>
 
 <ul>
     <% @my_shoes.each do |shoe| %>
