@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Add a new Shoe</h1>
+  <%= simple_form_for(@shoe) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :brand %>
+    <%= f.input :price_per_day %>
+    <%= f.submit %>
+  <% end %>
+</div>
