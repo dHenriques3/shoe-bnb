@@ -1,0 +1,11 @@
+<ul>
+    <li>-----------------------------------</li>
+    <li><%= @shoe.name %> </li>
+    <li>Brand: <%= @shoe.brand %></li>
+    <li>Price Per Day: <%= @shoe.price_per_day %></li>
+    <li>Status: <%= @shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
+    <li>Owner: <%= @shoe.user.first_name %></li>
+    <li>-----------------------------------</li>
+</ul>
+
+<button><%= link_to "Back to all shoes", shoes_path %></button>

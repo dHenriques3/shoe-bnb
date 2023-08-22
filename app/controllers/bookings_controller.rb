@@ -1,4 +1,9 @@
 class BookingsController < ApplicationController
+  
+  def index
+    @bookings = booking.where("user_id = #{current_user.id}")
+  end
+  
   def new
     @booking = Booking.new
   end
@@ -19,5 +24,4 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
-  end
 end
