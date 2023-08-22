@@ -5,4 +5,8 @@ class ShoesController < ApplicationController
     # @my_shoes are the shoes that the user will have listed to be rented out.
     @my_shoes = Shoe.where("user_id = #{current_user.id}")
   end
+
+  def show
+    @shoe = Shoe.find(params[:id])
+  end
 end
