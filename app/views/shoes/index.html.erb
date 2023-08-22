@@ -11,3 +11,11 @@
 </ul>
 
 <h1>My Shoe Listings </h1>
+  <% @my_shoes.each do |shoe| %>
+    <li>-----------------------------------</li>
+    <li><%= shoe.name %> </li>
+    <li><%= shoe.brand %></li>
+    <li><%= shoe.price_per_day %></li>
+    <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
+    <li>-----------------------------------</li>
+  <% end %>
