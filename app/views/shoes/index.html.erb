@@ -1,1 +1,13 @@
-<h1> these are shoes </h1>
+<h1> Shoes To rent </h1>
+
+<ul>
+  <% @shoes.each do |shoe| %>
+    <li>-----------------------------------</li>
+    <li><%= shoe.name %> </li>
+    <li><%= shoe.brand %></li>
+    <li><%= shoe.price_per_day %></li>
+    <li>-----------------------------------</li>
+  <% end %>
+</ul>
+
+<h1>My Shoe Listings </h1>
