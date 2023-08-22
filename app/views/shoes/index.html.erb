@@ -1,1 +1,26 @@
-<h1> these are shoes </h1>
+<h1> Shoes To rent </h1>
+
+<ul>
+  <% @shoes.each do |shoe| %>
+    <li>-----------------------------------</li>
+    <li><%= shoe.name %> </li>
+    <li><%= shoe.brand %></li>
+    <li><%= shoe.price_per_day %></li>
+    <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
+    <li>-----------------------------------</li>
+  <% end %>
+</ul>
+
+<h1><%=current_user.first_name%> <%=current_user.last_name%>'s Shoe Listings </h1>
+
+<ul>
+    <% @my_shoes.each do |shoe| %>
+      <li>-----------------------------------</li>
+      <li><%= shoe.name %> </li>
+      <li><%= shoe.brand %></li>
+      <li><%= shoe.price_per_day %></li>
+      <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
+      <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
+      <li>-----------------------------------</li>
+    <% end %>
+</ul>
