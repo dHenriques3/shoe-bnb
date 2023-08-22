@@ -1,18 +1,17 @@
 class BookingsController < ApplicationController
-  
   def index
-    @bookings = booking.where("user_id = #{current_user.id}")
+    @bookings = Booking.where("user_id = #{current_user.id}")
   end
-  
+
   def new
     @booking = Booking.new
+    @shoe = Shoe.find(params[:shoe_id])
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.shoe_id = params[:id]
+    @booking.shoe_id = params[:shoe_id]
     @booking.user = current_user
-
     if @booking.save
       redirect_to bookings_path
     else
@@ -23,5 +22,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :shoe_id)
+  end
 end
