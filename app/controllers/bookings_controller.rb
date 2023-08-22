@@ -22,6 +22,17 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+
+    @shoe = @booking.shoe
+    @shoe.is_rented = false
+    @shoe.save
+
+    @booking.destroy
+    redirect_to bookings_path, status: :see_other
+  end
+
   private
 
   def booking_params

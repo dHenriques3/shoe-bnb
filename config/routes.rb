@@ -8,12 +8,12 @@ Rails.application.routes.draw do
 
   # created routes should be checked with rails routes in terminal
   # before controller actions are created.
-  resources :shoes, only: %i[index show new create] do
+  resources :shoes, only: %i[index show new create destroy] do
     resources :bookings, only: %i[new create]
   end
 
   # allows us to show the user their individual bookings.
-  resources :bookings, only: %i[index]
+  resources :bookings, only: %i[index destroy]
 
   get "/my_shoes", to: "shoes#my_shoes"
 end

@@ -9,6 +9,10 @@
     <%= booking.shoe.brand%>
     <%= booking.shoe.price_per_day%>
   </h3>
+  <%= link_to "Cancel Booking",
+            booking_path(booking),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
   <li>-------------------------</li>
 <% end %>
 

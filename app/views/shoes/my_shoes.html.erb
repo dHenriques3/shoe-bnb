@@ -7,8 +7,16 @@
       <li><%= shoe.brand %></li>
       <li><%= shoe.price_per_day %></li>
       <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
-      <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
-      <li>-----------------------------------</li>
+      <button><%= link_to "Shoe Details", my_shoes_path %></button>
+
+      <% if !shoe.is_rented %>
+        <%= link_to "Delete",
+            shoe_path(shoe),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        <li>-----------------------------------</li>
+      <% end %>
+
     <% end %>
 </ul>
 
