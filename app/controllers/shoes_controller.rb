@@ -1,7 +1,13 @@
 class ShoesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
+
   def index
     # @shoes will be the shoes that the user can rent which have not been rented out.
-    @shoes = Shoe.where(is_rented: false).where.not(user_id: current_user.id)
+    if current_user
+      @shoes = Shoe.where(is_rented: false).where.not(user_id: current_user.id)
+    else
+      @shoes = Shoe.all
+    end
   end
 
   def my_shoes
