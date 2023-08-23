@@ -1,1 +1,70 @@
-// Specific CSS for your home-page
+// // Specific CSS for your home-page
+
+
+// h1 {
+//   color:#35CE8D!important;
+//   // justify-content: center;
+//   text-align:center;
+//   font-family: Monospace;
+//   font-weight: bold;
+//   font-size: 100px;
+// }
+
+// .btn-primary
+.background-home {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("sneaker_wallpaper.png") !important;
+  background-position-y: -75px;
+}
+
+.banner {
+  background-position: center;
+  padding: 150px 0;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.banner h1 {
+  margin: 65px;
+  margin-left: 75px;
+  color:white;
+  font-family: MONOSPACE;
+  text-shadow: 10px 10px 10px rgba(0,0,0,4.0);
+  font-size:130px;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.banner p {
+  font-size: 75px;
+  color: #E1E9E5;
+  // opacity: .7;
+
+}
+
+.btn-primary {
+  background-color:#35CE8D;
+  border: none;
+  color:#E1E9E5;
+  margin: auto 0;
+  font-size: 25px;
+  font-weight: bold;
+  border-radius: 12px;
+  justify-content: space-around;
+  // justify-content: center;
+  text-shadow: 5px 5px 5px rgba(0,0,0,0.7);
+  &:hover {
+    color:#35CE8D
+  }
+}
+
+.buttons {
+  width: 340px;
+  display: flex;
+  justify-content: space-evenly;
+}
