@@ -1,5 +1,19 @@
 <h1>My Bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <%= booking.start_date %>
+  <li>-------------------------</li>
+  <h3>
+    <%= booking.start_date %>
+    <%= booking.end_date %>
+    <%= booking.shoe.name%>
+    <%= booking.shoe.brand%>
+    <%= booking.shoe.price_per_day%>
+  </h3>
+  <%= link_to "Cancel Booking",
+            booking_path(booking),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+  <li>-------------------------</li>
 <% end %>
+
+<button><%= link_to "View Shoes", shoes_path %></button>

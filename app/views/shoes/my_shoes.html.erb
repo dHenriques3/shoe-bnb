@@ -1,0 +1,25 @@
+<h1> My Shoes </h1>
+
+<ul>
+    <% @my_shoes.each do |shoe| %>
+      <li>-----------------------------------</li>
+      <li><%= shoe.name %> </li>
+      <li><%= shoe.brand %></li>
+      <li><%= shoe.price_per_day %></li>
+      <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
+      <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
+
+      <% if !shoe.is_rented %>
+        <%= link_to "Delete",
+            shoe_path(shoe),
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+          %>
+        <li>-----------------------------------</li>
+      <% end %>
+
+    <% end %>
+</ul>
+
+<button><%= link_to "Add a Shoe", new_shoe_path %></button>
+<button><%= link_to "View Bookings", bookings_path %></button>
+!
