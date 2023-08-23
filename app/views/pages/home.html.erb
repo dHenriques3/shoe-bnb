@@ -1,2 +1,28 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%# <h1>Pages#home</h1>
+<div  class= "container d-flex justify-content-center align-items-center h-100">
+<h1>SNEAKER SPOT</h1>
+</div>
+
+<div  class= "container d-flex justify-content-center align-items-center ">
+<%= link_to "LOGIN", new_user_session_path, class: "btn btn-primary d-block"  %>
+<%#
+<%= link_to "SIGN UP", new_user_session_path, class: "btn btn-primary d-block"  %>
+<%# <button type="button" target="blank">LOGIN</button> %>
+<%# </div> %>
+
+<%# <p>Find me in app/views/pages/home.html.erb</p>  %>
+<div class="background-home">
+  <div class="banner" style="background-image: url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/SHOES.jpg);">
+    <div class="container">
+      <h1><strong>SNEAKERSPOT</strong></h1>
+    </div>
+    <div class="buttons">
+      <div>
+        <%= link_to "LOGIN", new_user_session_path, class: "btn btn-primary" %>
+      </div>
+      <div>
+        <%= link_to "SIGN-UP", new_user_registration_path, class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
