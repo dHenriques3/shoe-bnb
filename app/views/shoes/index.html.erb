@@ -1,12 +1,21 @@
-<h1> Shoes To rent </h1>
+<h1> Shoes To Rent </h1>
 
-<ul>
-  <% @shoes.each do |shoe| %>
-    <li>-----------------------------------</li>
-    <li><%= shoe.name %> </li>
-    <li><%= shoe.brand %></li>
-    <li><%= shoe.price_per_day %></li>
-    <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
-    <li>-----------------------------------</li>
+<div class="row">
+    <% @shoes.each do |shoe| %>
+
+    <div class="card col-4 m-2" style="width: 25%;">
+      <img class="card-img-top" src="https://source.unsplash.com/random/" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= shoe.name %> </h5>
+        <p class="card-text">
+        Brand: <%= shoe.brand %>
+        <br>
+        Price_per_day: <%= shoe.price_per_day %>
+        </p>
+        <%= link_to "Shoe Details", shoe_path(shoe), class: "btn btn-success" %>
+      </div>
+    </div>
+
   <% end %>
-</ul>
+
+</div>
