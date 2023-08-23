@@ -7,7 +7,7 @@
       <li><%= shoe.brand %></li>
       <li><%= shoe.price_per_day %></li>
       <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
-      <button><%= link_to "Shoe Details", my_shoes_path %></button>
+      <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
 
       <% if !shoe.is_rented %>
         <%= link_to "Delete",
@@ -22,3 +22,4 @@
 
 <button><%= link_to "Add a Shoe", new_shoe_path %></button>
 <button><%= link_to "View Bookings", bookings_path %></button>
+!
