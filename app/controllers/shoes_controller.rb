@@ -20,6 +20,7 @@ class ShoesController < ApplicationController
   def my_shoes
     # @my_shoes are the shoes that the user has created and can rent out.
     @my_shoes = Shoe.where("user_id = #{current_user.id}")
+
   end
 
   def show
@@ -40,6 +41,16 @@ class ShoesController < ApplicationController
     end
   end
 
+  def edit
+    @shoe = Shoe.find(params[:id])
+  end
+
+  def update
+    @shoe = Shoe.find(params[:id])
+    @shoe.update(shoe_params)
+    redirect_to shoe_path(@shoe)
+  end
+
   def destroy
     @shoe = Shoe.find(params[:id])
     @shoe.destroy
@@ -49,6 +60,6 @@ class ShoesController < ApplicationController
   private
 
   def shoe_params
-    params.require(:shoe).permit(:name, :brand, :price_per_day)
+    params.require(:shoe).permit(:name, :brand, :price_per_day, photos: [])
   end
 end
