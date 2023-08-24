@@ -33,6 +33,9 @@ gem "devise"
 # Cloudinary Gem to handle image uploads
 gem "cloudinary"
 
+# geocoder gem
+gem "geocoder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
