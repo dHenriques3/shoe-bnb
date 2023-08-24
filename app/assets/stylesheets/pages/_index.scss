@@ -6,12 +6,25 @@ body {
   background-color: #E1E9E5;
 }
 
-// .row  {
-//   justify-content: center;
-//   text-align: center;
+.row  {
+  justify-content: center;
+  text-align: center;
+}
 
-// }
+//changed the text of AVAILABLE TO RENT//
+.text-center  {
+  font-family: Georgia;
+  font-size: 35px;
+}
 
+.row a {
+  text-decoration: none;
+}
+
+.card-body {
+  font-family: georgia;
+  color: black;
+  
+  // maybe remove this
 .card-img-top  {
   margin-top: 15px;
-}
