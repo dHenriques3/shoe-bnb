@@ -52,7 +52,7 @@
       </div>
     </div> <%# product-info-card %>
 
-    <%= link_to "Rent Shoe", new_shoe_booking_path(@shoe), class:"btn btn-success m-2 btn-lg btn-block", style: "width: 100%;" %>
+    <%= link_to "Rent Shoe", new_shoe_booking_path(@shoe), class:"btn btn-success m-2 btn-lg btn-block", style: "width: 100%;", data: { bs_toggle: "modal", bs_target: "#exampleModal" }%>
     <%# button to rent %>
 
     <div style="width: 100%; height: 450px;"
@@ -64,4 +64,27 @@
     <div class="rent-form d-none"></div>
 
   </div> <%# product-info %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">My title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <%= simple_form_for [@shoe, @booking] do |f| %>
+          <%= f.input :start_date, html5: true %>
+          <%= f.input :end_date, html5: true %>
+          <button> <%= f.button :submit %> </button>
+      <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
