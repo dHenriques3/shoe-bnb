@@ -1,25 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="d-flex">
-      <%= link_to "#", class: "navbar-brand" do %>
-        <%= image_tag "shoes.png" %>
+
+      <%= link_to shoes_path, class: "navbar-brand" do %>
+        <div class="d-flex justify-content-around">
+          <%= image_tag "shoes.png", class: "m-1"%>
+          <h1><strong>SNEAKERSPOT</strong></h1>
+        </div>
       <% end %>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-      <h1><strong>SNEAKERSPOT</strong></h1>
     </div>
 
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-     <h1><strong>SNEAKERSPOT</strong></h1>
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
          <li class="nav-item">

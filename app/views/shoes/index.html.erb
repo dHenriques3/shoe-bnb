@@ -28,17 +28,18 @@
 
 
 <div class="row">
-    <% @shoes.each do |shoe| %>
 
-    <%= link_to shoe_path(shoe) do %>
-      <div class="card col-2 m-1" style="width: 25%;">
+  <% @shoes.each do |shoe| %>
+
+    <%= link_to shoe_path(shoe), class:"col-3 m-1 card-hover" do %>
+      <div class="card">
         <img class="card-img-top" src="https://source.unsplash.com/random?nike" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"><%= shoe.name %> </h5>
             <p class="card-text">
-            Brand: <%= shoe.brand %>
-            <br>
-            Daily Rate: <%= shoe.price_per_day %>
+              Brand: <%= shoe.brand %>
+              <br>
+              Daily Rate: <%= shoe.price_per_day %>
             </p>
         </div>
       </div>
