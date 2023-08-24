@@ -33,6 +33,16 @@ class ShoesController < ApplicationController
     end
   end
 
+  def edit
+    @shoe = Shoe.find(params[:id])
+  end
+
+  def update
+    @shoe = Shoe.find(params[:id])
+    @shoe.update(shoe_params)
+    redirect_to shoe_path(@shoe)
+  end
+
   def destroy
     @shoe = Shoe.find(params[:id])
     @shoe.destroy

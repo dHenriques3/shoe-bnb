@@ -8,6 +8,7 @@
       <li><%= shoe.price_per_day %></li>
       <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
       <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
+      <button><%= link_to "Edit a Shoe", edit_shoe_path(shoe) %></button>
 
       <% if !shoe.is_rented %>
         <%= link_to "Delete",
