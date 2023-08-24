@@ -9,5 +9,19 @@ body {
 .row  {
   justify-content: center;
   text-align: center;
+}
 
+//changed the text of AVAILABLE TO RENT//
+.text-center  {
+  font-family: Georgia;
+  font-size: 35px;
+}
+
+.row a {
+  text-decoration: none;
+}
+
+.card-body {
+  font-family: georgia;
+  color: black;
 }

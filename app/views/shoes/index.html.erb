@@ -24,17 +24,19 @@
 <div class="row">
     <% @shoes.each do |shoe| %>
 
-    <div class="card col-4 m-2" style="width: 25%;">
-      <img class="card-img-top" src="https://source.unsplash.com/random?nike" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= shoe.name %> </h5>
-        <p class="card-text">
-        Brand: <%= shoe.brand %>
-        <br>
-        Price_per_day: <%= shoe.price_per_day %>
-        </p>
+    <%= link_to shoe_path(shoe) do %>
+      <div class="card col-4 m-2" style="width: 25%;">
+        <img class="card-img-top" src="https://source.unsplash.com/random?nike" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= shoe.name %> </h5>
+            <p class="card-text">
+            Brand: <%= shoe.brand %>
+            <br>
+            Daily Rate: <%= shoe.price_per_day %>
+            </p>
+        </div>
       </div>
-    </div>
+    <% end %>
 
   <% end %>
 
