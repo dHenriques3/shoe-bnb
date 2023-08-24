@@ -8,4 +8,9 @@ class ApplicationController < ActionController::Base
     # # For additional in app/views/devise/registrations/edit.html.erb
     # devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
+
+  # this will redirect users to the shoes page after they have signed in
+  def after_sign_in_path_for(resource)
+    shoes_path
+  end
 end
