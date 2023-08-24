@@ -14,9 +14,15 @@
             shoe_path(shoe),
             data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
           %>
-        <li>-----------------------------------</li>
       <% end %>
 
+      <li>
+        <% shoe.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, width: 200, height: 200, crop: :fill %>
+        <% end %>
+      </li>
+
+      <li>-----------------------------------</li>
     <% end %>
 </ul>
 
