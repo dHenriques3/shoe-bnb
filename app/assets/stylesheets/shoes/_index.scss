@@ -1,0 +1,16 @@
+.index-header {
+  width: 70%;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+}
+
+.search-field {
+  height: 50px;
+}
+
+.search-btn {
+  border: 0px;
+  background: transparent;
+  transform: translateX(-40px);
+}
