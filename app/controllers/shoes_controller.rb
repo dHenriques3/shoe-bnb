@@ -5,8 +5,15 @@ class ShoesController < ApplicationController
     # @shoes will be the shoes that the user can rent which have not been rented out.
     if current_user
       @shoes = Shoe.where(is_rented: false).where.not(user_id: current_user.id)
+      # @shoes = Shoe.all
     else
       @shoes = Shoe.all
+    end
+
+    if params[:query].present?
+      sql_subquery = "name ILIKE :query OR brand ILIKE :query"
+      @shoes = @shoes.where(sql_subquery, query: "%#{params[:query]}%")
+      # raise
     end
   end
 
