@@ -1,52 +1,5 @@
 // // Specific CSS for your home-page
 
-
-// h1 {
-//   color:#35CE8D!important;
-//   // justify-content: center;
-//   text-align:center;
-//   font-family: Monospace;
-//   font-weight: bold;
-//   font-size: 100px;
-// }
-
-// .btn-primary
-.background-home {
-  width: 100%;
-  height: calc(100vh - 66px);
-  background-image: url("sneaker_wallpaper.png") !important;
-  background-position-y: -75px;
-}
-
-.banner {
-  background-position: center;
-  padding: 150px 0;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.banner h1 {
-  margin: 65px;
-  margin-left: 75px;
-  color:white;
-  font-family: MONOSPACE;
-  text-shadow: 10px 10px 10px rgba(0,0,0,4.0);
-  font-size:130px;
-  font-weight: bold;
-  text-align: center;
-
-}
-
-.banner p {
-  font-size: 75px;
-  color: #E1E9E5;
-  // opacity: .7;
-
-}
-
 .btn-primary {
   background-color:#35CE8D;
   border: none;
@@ -67,4 +20,43 @@
   width: 340px;
   display: flex;
   justify-content: space-evenly;
+}
+
+
+.shoes-bg-img{
+  position: relative;
+  text-align: center;
+  color: rgb(1, 1, 1);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),
+  rgba(0, 0, 0, 0.3)), url("sneaker_wallpaper.png");
+}
+
+.txt-centered {
+  // positioning
+  position: absolute;
+  top: 41vh;
+  left: 45vw;
+  transform: translate(-50%, -50%);
+  // looks
+  margin: 65px;
+  margin-left: 75px;
+  color:white;
+  font-family: MONOSPACE;
+  text-shadow: 10px 10px 10px rgba(0,0,0,4.0);
+  font-size:130px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.home-btn-centered {
+  position: absolute;
+  top: 59vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+.bg-img-size {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
 }

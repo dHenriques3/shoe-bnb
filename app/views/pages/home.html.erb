@@ -1,28 +1,6 @@
-<%# <h1>Pages#home</h1>
-<div  class= "container d-flex justify-content-center align-items-center h-100">
-<h1>SNEAKER SPOT</h1>
-</div>
 
-<div  class= "container d-flex justify-content-center align-items-center ">
-<%= link_to "LOGIN", new_user_session_path, class: "btn btn-primary d-block"  %>
-<%#
-<%= link_to "SIGN UP", new_user_session_path, class: "btn btn-primary d-block"  %>
-<%# <button type="button" target="blank">LOGIN</button> %>
-<%# </div> %>
-
-<%# <p>Find me in app/views/pages/home.html.erb</p>  %>
-<div class="background-home">
-  <div class="banner">
-    <div class="container">
-      <h1><strong>SNEAKERSPOT</strong></h1>
-    </div>
-    <div class="buttons">
-      <div>
-        <%= link_to "RENT A SHOE", new_user_session_path, class: "btn btn-primary" %>
-      </div>
-      <div>
-        <%# <%= link_to "SIGN-UP", new_user_registration_path, class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
+<div class="shoes-bg-img">
+  <div class="bg-img-size"></div>
+  <h1 class = "txt-centered"><strong>SNEAKERSPOT</strong></h1>
+  <%= link_to "RENT A SHOE", shoes_path, class: "btn btn-primary buttons home-btn-centered" %>
 </div>
