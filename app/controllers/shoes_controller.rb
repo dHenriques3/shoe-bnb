@@ -20,11 +20,11 @@ class ShoesController < ApplicationController
   def my_shoes
     # @my_shoes are the shoes that the user has created and can rent out.
     @my_shoes = Shoe.where("user_id = #{current_user.id}")
-
   end
 
   def show
     @shoe = Shoe.find(params[:id])
+    @markers = { lat: @shoe.latitude, lng: @shoe.longitude }
   end
 
   def new

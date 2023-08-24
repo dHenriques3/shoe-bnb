@@ -55,8 +55,13 @@
     <%= link_to "Rent Shoe", new_shoe_booking_path(@shoe), class:"btn btn-success m-2 btn-lg btn-block", style: "width: 100%;" %>
     <%# button to rent %>
 
-    <div class="rent-form d-none">
+    <div style="width: 100%; height: 450px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      class = "m-2">
     </div>
+    <div class="rent-form d-none"></div>
 
   </div> <%# product-info %>
 </div>
