@@ -24,6 +24,7 @@ class ShoesController < ApplicationController
 
   def show
     @shoe = Shoe.find(params[:id])
+    @booking = Booking.new
     @markers = { lat: @shoe.latitude, lng: @shoe.longitude }
   end
 

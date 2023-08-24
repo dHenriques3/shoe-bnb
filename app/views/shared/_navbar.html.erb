@@ -1,12 +1,22 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "shoes.png" %>
-    <% end %>
+    <div class="d-flex">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "shoes.png" %>
+      <% end %>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
+      <h1><strong>SNEAKERSPOT</strong></h1>
+    </div>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <h1><strong>SNEAKERSPOT</strong></h1>
@@ -21,7 +31,7 @@
           <li class="nav-item active">
             <%= link_to "🏠", root_path, class: "nav-link" %>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown nav-user-icon">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <%# shows the current_user's profile photo if it exists %>
           <% if current_user.photo.attached?  %>

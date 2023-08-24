@@ -1,20 +1,26 @@
+<div class="index-header">
 
-
-
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: shoes_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Search Your Sneaker"
-        %>
-      <%= submit_tag "Search", name: "", class: "btn btn-primary btn-sm" %>
-    <% end %>
-
+  <%# Page Title %>
+  <div class="col-6 p-0">
+    <h1 class="text-center m-0 p-0"> AVAILABLE TO RENT</h1>
   </div>
 
-  <h1 class="text-center"> Available To Rent</h1>
+  <%# Search bar %>
+
+  <div class="col-6">
+    <%= form_with url: shoes_path, method: :get, class: "d-flex align-items-center" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control search-field",
+            placeholder: "Search Your Sneaker"
+        %>
+      <%= button_tag class:"search-btn", type:"submit" do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    <% end %>
+</div>
+
+
 
 <br>
 
@@ -25,7 +31,7 @@
     <% @shoes.each do |shoe| %>
 
     <%= link_to shoe_path(shoe) do %>
-      <div class="card col-4 m-2" style="width: 25%;">
+      <div class="card col-2 m-1" style="width: 25%;">
         <img class="card-img-top" src="https://source.unsplash.com/random?nike" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"><%= shoe.name %> </h5>
