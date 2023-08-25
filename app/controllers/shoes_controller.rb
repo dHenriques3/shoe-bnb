@@ -4,7 +4,7 @@ class ShoesController < ApplicationController
   def index
     # @shoes will be the shoes that the user can rent which have not been rented out.
     if current_user
-      @shoes = Shoe.where(is_rented: false).where.not(user_id: current_user.id).reverse
+      @shoes = Shoe.where(is_rented: false).reverse
       # @shoes = Shoe.all
     else
       @shoes = Shoe.all
@@ -12,7 +12,7 @@ class ShoesController < ApplicationController
 
     if params[:query].present?
       sql_subquery = "name ILIKE :query OR brand ILIKE :query"
-      @shoes = @shoes.where(sql_subquery, query: "%#{params[:query]}%")
+      @shoes = Shoe.where(sql_subquery, query: "%#{params[:query]}%")
       # raise
     end
   end
