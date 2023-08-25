@@ -1,11 +1,13 @@
-<h2 class="text-center m-3"> DASHBOARD</h2>
+<h2 class="text-center text m-3"> DASHBOARD</h2>
 
 <div class="row">
-  <%= link_to "Add a Shoe", new_shoe_path, class: "btn btn-light col-6" %>
-  <%= link_to "View Bookings", bookings_path, class: "btn btn-light col-6" %>
+  <div class="d-flex justify-content-between w-50">
+    <%= link_to "Add a Shoe", new_shoe_path, class: "booking-btn btn btn-primary col-3" %>
+    <%= link_to "View Bookings", bookings_path, class: "booking-btn btn btn-primary col-3" %>
+   </div>
 </div> <%# links to Bookings and Adding a shoe %>
 
-<h4 class="m-3" style="text-align:center;"> MY SHOES</h4>
+<h4 class="m-3 text-sub" style="text-align:center;"> MY SHOES</h4>
 <div class="row">
 
 
