@@ -2,15 +2,15 @@
 </div>
 
 <div class="row">
-  <%= link_to "All Shoes", shoes_path, class:" btn btn-sm btn-light text-center col-1 align-self-end" %>
+  <%# <%= link_to "All Shoes", shoes_path, class:" btn btn-sm btn-light text-center col-1 align-self-end" %>
   <%# button to go back to all shoes %>
-  <h1 class="text-center col-10">Shoe Details</h1>
+  <h1 class="text-left col-12 green-georgia" > DETAILS</h1>
 </div>
 
 
-<div class="product-details d-flex justify-content-between" style="width: 100%; height: 700px;">
+<div class="product-details d-flex justify-content-center" style="width: 100%; height: 700px;gap: 3rem;">
 
-  <div class="img_card d-flex align-items-center justify-content-around" style="width: 700px; height: 700px;">
+  <div class="img_card d-flex align-items-center justify-content-around" style="width: 700px; height: 700px; gap: 1rem;">
 
     <div class="main_img">
       <img src="https://source.unsplash.com/random/" class="rounded align-middle p-2" alt="..." width="500px" height="700px"
@@ -18,7 +18,7 @@
       >
     </div>
 
-    <div class="side_imgs" style="height: 100%;">
+    <div class="side_imgs" style="height: 102%;" >
 
       <div class="text-center mb-3 mt-3">
         <img src="https://source.unsplash.com/random/" class="rounded" alt="..." width="200px" height="200px" style="object-fit:cover;">
@@ -39,12 +39,12 @@
   <div class="product-info p-2">
 
     <div class="product-info-card" style="width: 35vw">
-      <div class="card m-2" style="width: 100%">
+      <div class="card" style="width: 100%" style="height:100%">
         <div class="card-body">
           <h5 class="card-title"><%= @shoe.name %></h5>
           <h6 class="card-subtitle mb-2 text-muted">Brand: <%= @shoe.brand %></h6>
           <p class="card-text">
-            Price Per Day: £<%= @shoe.price_per_day %> <br>
+           Daily Rate: £<%= @shoe.price_per_day %> <br>
             Status: <%= @shoe.is_rented ? "Currently rented" : "Not yet rented" %> <br>
             Owner: <%= @shoe.user.first_name %> <br>
           </p>
@@ -52,7 +52,7 @@
       </div>
     </div> <%# product-info-card %>
 
-    <%= link_to "Rent Shoe", new_shoe_booking_path(@shoe), class:"btn btn-success m-2 btn-lg btn-block", style: "width: 100%;", data: { bs_toggle: "modal", bs_target: "#exampleModal" }%>
+    <%= link_to "RENT SHOE", new_shoe_booking_path(@shoe), class:"btn btn-success my-2 btn-lg btn-block", style: "width: 100%;", data: { bs_toggle: "modal", bs_target: "#exampleModal" }%>
     <%# button to rent %>
 
     <div style="width: 100%; height: 450px;"
