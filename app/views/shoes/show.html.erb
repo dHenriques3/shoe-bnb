@@ -11,28 +11,19 @@
 <div class="product-details d-flex justify-content-center" style="width: 100%; height: 700px;gap: 3rem;">
 
   <div class="img_card d-flex align-items-center justify-content-around" style="width: 700px; height: 700px; gap: 1rem;">
+      <% if @shoe.photos.attached? %>
+        <div class="main_img">
+          <%= cl_image_tag @shoe.photos.first.key, class: "rounded", width: 500, height:700, style: "object-fit:cover;" %>
+        </div>
 
-    <div class="main_img">
-      <img src="https://source.unsplash.com/random/" class="rounded align-middle p-2" alt="..." width="500px" height="700px"
-      style="object-fit:cover;"
-      >
-    </div>
-
-    <div class="side_imgs" style="height: 102%;" >
-
-      <div class="text-center mb-3 mt-3">
-        <img src="https://source.unsplash.com/random/" class="rounded" alt="..." width="200px" height="200px" style="object-fit:cover;">
-      </div>
-
-      <div class="text-center mb-3">
-        <img src="https://source.unsplash.com/random/" class="rounded" alt="..." width="200px" height="200px" style="object-fit:cover;">
-      </div>
-
-      <div class="text-center mb-3">
-        <img src="https://source.unsplash.com/random/" class="rounded" alt="..." width="200px" height="200px" style="object-fit:cover;">
-      </div>
-
-    </div>
+        <div class="side_imgs" style="height: 102%;" >
+          <% @shoe.photos[1..3].each do |photo| %>
+            <div class="text-center mb-3 mt-3">
+              <%= cl_image_tag photo.key, class: "rounded", width: 200, height:200, style: "object-fit:cover;" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
 
   </div> <%# Image carousel place holder %>
 

@@ -30,16 +30,15 @@
 <div class="row">
 
   <% @shoes.each do |shoe| %>
-
-    <%= link_to shoe_path(shoe), class:"col-3 m-1 card-hover" do %>
-    <div class="card">
-        <img class="card-img-top" src="https://source.unsplash.com/random?nike" alt="Card image cap">
+    <%= link_to shoe_path(shoe), class:"col-4 p-0" do %>
+    <div class="card m-2 card-hover">
+        <%= cl_image_tag shoe.photos.first.key, height: 200, style:"object-fit:cover;" %>
           <div class="card-body">
             <h5 class="card-title"><%= shoe.name %> </h5>
             <p class="card-text">
               Brand: <%= shoe.brand %>
               <br>
-              Daily Rate: <%= shoe.price_per_day %>
+              Daily Rate: £<%= shoe.price_per_day %>
             </p>
         </div>
       </div>
