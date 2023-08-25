@@ -1,11 +1,11 @@
 <div class="index-header">
 
   <%# Page Title %>
-  <div class="col-6 p-0">
+  <div class="col-6 p-0 text" >
     <h1 class="text-center m-0 p-0"> AVAILABLE TO RENT</h1>
   </div>
 
-  <%# Search bar %>
+
 
   <div class="col-6">
     <%= form_with url: shoes_path, method: :get, class: "d-flex align-items-center" do %>
@@ -32,7 +32,7 @@
   <% @shoes.each do |shoe| %>
 
     <%= link_to shoe_path(shoe), class:"col-3 m-1 card-hover" do %>
-      <div class="card">
+    <div class="card">
         <img class="card-img-top" src="https://source.unsplash.com/random?nike" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title"><%= shoe.name %> </h5>
