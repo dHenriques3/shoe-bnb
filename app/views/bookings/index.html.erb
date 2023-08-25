@@ -1,8 +1,11 @@
-<h1>My Bookings</h1>
+<h2 class="text-center m-3"> DASHBOARD </h2>
 
-<button><%= link_to "View Shoes", shoes_path %></button>
+  <div class="row">
+    <%= link_to "Make a new booking", shoes_path, class: "btn btn-light col-6"  %>
+    <%= link_to "My shoes", my_shoes_path, class: "btn btn-light col-6" %>
+  </div>
 
-
+<h4 class="m-3" style="text-align:center;"> MY BOOKINGS </h4>
 
 <div class="row">
 
@@ -23,13 +26,11 @@
 
           <%= link_to "Cancel Booking",
             booking_path(booking),
-            data: {turbo_method: :delete, turbo_confirm: "Are you cancel?"},
+            data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel your booking?"},
             class: "btn btn-danger m-3",
             style: "position: relative; z-index: 100;"
             %>
         </div>
     </div>
-
-
   <% end %>
 </div>
