@@ -1,32 +1,86 @@
-<h1> My Shoes </h1>
+<h2 class="text-center m-3"> DASHBOARD</h2>
 
-<ul>
-    <% @my_shoes.each do |shoe| %>
+<div class="row">
+  <%= link_to "Add a Shoe", new_shoe_path, class: "btn btn-light col-6" %>
+  <%= link_to "View Bookings", bookings_path, class: "btn btn-light col-6" %>
+</div> <%# links to Bookings and Adding a shoe %>
+
+<h4 class="m-3" style="text-align:center;"> MY SHOES</h4>
+<div class="row">
+
+
+  <% @my_shoes.each_with_index do |shoe, index| %>
+
+    <div class="card col-3 m-3">
+
+      <div id="carouselExampleFade-<%=index%>" class="carousel slide carousel-fade mt-3">
+
+        <div class="carousel-inner">
+          <% if shoe.photos.attached? %>
+            <div class="carousel-item active m-0">
+              <%= cl_image_tag shoe.photos.first.key, crop: :fill, style: "width:100%; height:200px; object-fit:cover", class: "d-block" %>
+            </div>
+
+            <% shoe.photos[1..shoe.photos.size].each do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, crop: :fill, style: "width:100%; height:200px; object-fit:cover", class: "d-block"%>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade-<%=index%>" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade-<%=index%>" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> <%# carousel of images %>
+
       <li>-----------------------------------</li>
-      <li><%= shoe.name %> </li>
-      <li><%= shoe.brand %></li>
-      <li><%= shoe.price_per_day %></li>
-      <li><%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
-      <button><%= link_to "Shoe Details", shoe_path(shoe) %></button>
-      <button><%= link_to "Edit a Shoe", edit_shoe_path(shoe) %></button>
+      <div>
+        <li>NAME: <%= shoe.name %> </li>
+        <li>BRAND: <%= shoe.brand %></li>
+        <li>DAILY PRICE: <%= shoe.price_per_day %></li>
+        <li>STATUS: <%= shoe.is_rented ? "Currently rented" : "Not yet rented" %></li>
+        <br>
+      </div>
 
-      <% if !shoe.is_rented %>
-        <%= link_to "Delete",
-            shoe_path(shoe),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-      <% end %>
+      <div class="row m-2">
+        <%= link_to "DETAILS", shoe_path(shoe), class: "btn btn-light col-4" %>
+        <%= link_to "EDIT", edit_shoe_path(shoe), class: "btn btn-light col-5", data: { bs_toggle: "modal", bs_target: "#exampleModal"} %>
+        <% if !shoe.is_rented %>
+          <%= link_to "DEL",
+              shoe_path(shoe),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "btn btn-danger col-3"
+            %>
+        <% end %><%# delete button %>
+      </div> <%# buttons for functionality %>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">EDIT <%= shoe.name.upcase%></h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
 
-      <li>
-        <% shoe.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, width: 200, height: 200, crop: :fill %>
-        <% end %>
-      </li>
+              <%= simple_form_for(shoe) do |f| %>
+                <%= f.input :name %>
+                <%= f.input :brand %>
+                <%= f.input :price_per_day %>
+                <%= f.submit class: "btn btn-primary"%>
+              <% end %>
 
-      <li>-----------------------------------</li>
-    <% end %>
-</ul>
+            </div>
 
-<button><%= link_to "Add a Shoe", new_shoe_path %></button>
-<button><%= link_to "View Bookings", bookings_path %></button>
-!
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div> <%# My Shoes List%>

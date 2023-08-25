@@ -4,7 +4,7 @@ class ShoesController < ApplicationController
   def index
     # @shoes will be the shoes that the user can rent which have not been rented out.
     if current_user
-      @shoes = Shoe.where(is_rented: false).where.not(user_id: current_user.id)
+      @shoes = Shoe.where(is_rented: false).where.not(user_id: current_user.id).reverse
       # @shoes = Shoe.all
     else
       @shoes = Shoe.all
@@ -19,7 +19,7 @@ class ShoesController < ApplicationController
 
   def my_shoes
     # @my_shoes are the shoes that the user has created and can rent out.
-    @my_shoes = Shoe.where("user_id = #{current_user.id}")
+    @my_shoes = Shoe.where("user_id = #{current_user.id}").reverse
   end
 
   def show
@@ -36,7 +36,7 @@ class ShoesController < ApplicationController
     @shoe = Shoe.new(shoe_params)
     @shoe.user = current_user
     if @shoe.save
-      redirect_to shoes_path
+      redirect_to my_shoes_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -49,7 +49,7 @@ class ShoesController < ApplicationController
   def update
     @shoe = Shoe.find(params[:id])
     @shoe.update(shoe_params)
-    redirect_to shoe_path(@shoe)
+    redirect_to my_shoes_path(@shoe)
   end
 
   def destroy
