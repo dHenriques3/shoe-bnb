@@ -1,19 +1,35 @@
 <h1>My Bookings</h1>
 
-<% @bookings.each do |booking| %>
-  <li>-------------------------</li>
-  <h3>
-    <%= booking.start_date %>
-    <%= booking.end_date %>
-    <%= booking.shoe.name%>
-    <%= booking.shoe.brand%>
-    <%= booking.shoe.price_per_day%>
-  </h3>
-  <%= link_to "Cancel Booking",
-            booking_path(booking),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-  <li>-------------------------</li>
-<% end %>
-
 <button><%= link_to "View Shoes", shoes_path %></button>
+
+
+
+<div class="row">
+
+  <% @bookings.each do |booking| %>
+
+    <div class="card col-3 m-3 position-relative card-hover", style="width:300px">
+
+      <img class="card-img-top p-0 pt-3" src="https://source.unsplash.com/random?nike" alt="Card image cap">
+
+        <div class="mt-2">
+          <%= booking.shoe.name.upcase%> <br>
+          BRAND: <%= booking.shoe.brand%> <br>
+          DAILY PRICE: <%= booking.shoe.price_per_day%> <br> <br>
+          START DATE: <%= booking.start_date %> <br>
+          END DATE: <%= booking.end_date %> <br>
+
+          <%= link_to " ", shoe_path(booking.shoe), class: "card-link" %>
+
+          <%= link_to "Cancel Booking",
+            booking_path(booking),
+            data: {turbo_method: :delete, turbo_confirm: "Are you cancel?"},
+            class: "btn btn-danger m-3",
+            style: "position: relative; z-index: 100;"
+            %>
+        </div>
+    </div>
+
+
+  <% end %>
+</div>
