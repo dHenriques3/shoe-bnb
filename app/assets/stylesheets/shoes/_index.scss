@@ -1,9 +1,14 @@
 
 .text {
-  font-size: 20px;
+  font-size: 50px;
   color: #35CE8D;
   text-align: left;
   text-shadow: 1px 1px 1px black;
+}
+
+.text-sub {
+  font-size: 30px;
+  color: black;
 }
 
 
@@ -25,4 +30,19 @@
   border: 0px;
   background: transparent;
   transform: translateX(-40px);
+}
+
+.booking-btn {
+  width: 290px;
+}
+
+
+.new-container {
+  width: 700px;
+  justify-content: center;
+  text-align:center;
+}
+
+.text-sub {
+  font-size:20px;
 }
