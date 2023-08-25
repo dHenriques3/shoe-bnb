@@ -32,7 +32,12 @@
   <% @shoes.each do |shoe| %>
     <%= link_to shoe_path(shoe), class:"col-4 p-0" do %>
     <div class="card m-2 card-hover">
+      <% if shoe.photos.attached?%>
         <%= cl_image_tag shoe.photos.first.key, height: 200, style:"object-fit:cover;" %>
+      <% else %>
+        <%= image_tag "https://source.unsplash.com/random?adidas", height: 200, style:"object-fit:cover;"  %>
+      <% end %>
+
           <div class="card-body">
             <h5 class="card-title"><%= shoe.name %> </h5>
             <p class="card-text">
